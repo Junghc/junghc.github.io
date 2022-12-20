@@ -178,7 +178,7 @@ body {
   background: var(--body-bg-color);
   color: var(--text-color);
   font-family: 'Secular One', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 1em;
+  font-size: 0.8em;
   line-height: 2;
 }
 @media (max-width: 991px) {
@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f428ff;
+  background: #213bb5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2431,13 +2431,36 @@ ul.breadcrumb li + li:last-child {
   background: none;
   color: #eb4034;
 }
+.header-inner {
+  font-size: 16px;
+}
 .sidebar-inner {
   border-radius: 7px;
   box-shadow: 0 6px 16px 0 rgba(0,0,0,0.2);
   margin-top: 35px;
+  font-size: 16px;
 }
 .content-wrap {
   margin-top: 20px;
   border-radius: 7px;
   box-shadow: 0 6px 16px 0 rgba(0,0,0,0.2);
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 13.6px;
+  color: #777;
 }
