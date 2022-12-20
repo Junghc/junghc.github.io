@@ -178,7 +178,7 @@ body {
   background: var(--body-bg-color);
   color: var(--text-color);
   font-family: 'Secular One', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 0.8em;
+  font-size: 0.93em;
   line-height: 2;
 }
 @media (max-width: 991px) {
@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #213bb5;
+  background: #3c670d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2444,6 +2444,10 @@ ul.breadcrumb li + li:last-child {
   margin-top: 20px;
   border-radius: 7px;
   box-shadow: 0 6px 16px 0 rgba(0,0,0,0.2);
+}
+/* font size*/
+.table-container {
+  font-size: 18px;
 }
 h1 {
   font-size: 32px;
