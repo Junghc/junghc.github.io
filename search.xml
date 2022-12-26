@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Build blog with hexo</title>
+    <url>/Tutorial/note-hexo-first/</url>
+    <content><![CDATA[<blockquote>
+<p>用光速建置基本版 Blog</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><blockquote>
+<p>工欲善其事，必先利其器，請安裝</p>
+</blockquote>
+<ul>
+<li><a href="https://nodejs.org/en/">Node.js</a>  ( 開啟命令提示字元 -&gt; 輸入 <code>node -v</code> 檢查是否安裝完成 )</li>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="">Visual Studio Code</a></li>
+<li>Hexo:  開啟命令提示字元 -&gt; 輸入 <code>npm install -g hexo-cli</code></li>
+</ul>
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><blockquote>
+<p>開啟命令提示字元，依序打入指令，即可無痛獲得 Blog 專案</p>
+</blockquote>
+<ul>
+<li><code>hexo init YOUR_HEXO_FOLDER_NAME</code></li>
+<li><code>cd YOUR_HEXO_FOLDER_NAME</code></li>
+<li><code>npm install</code></li>
+<li><code>hexo server</code> &#x2F;&#x2F; 為啟動專案指令，打開瀏覽器輸入 localhost:4000，Blog畫面近在眼前</li>
+</ul>
+<h3 id="New-Post"><a href="#New-Post" class="headerlink" title="New Post"></a>New Post</h3><ul>
+<li><code>hexo new post mynewpost</code></li>
+<li>打開 hexo 專案，相對路徑參考<br><code>path:\YOUR_HEXO_FOLDER_NAME\source\_posts\mynewpost.md</code></li>
+<li>虛線底下輸入 <code># HI, MY FIRST POST</code> 儲存並啟動專案</li>
+<li>恭喜你有一篇新文章，離部落客又更近了一點</li>
+</ul>
+<h3 id="Hexo-Command"><a href="#Hexo-Command" class="headerlink" title="Hexo Command"></a>Hexo Command</h3><ul>
+<li><code>hexo new post POST_NAME</code> (建立一個新的文章)</li>
+<li><code>hexo new page PAGE_NAME</code> (建立一個新的頁面)</li>
+<li><code>hexo cl / hexo clean</code> (清除快取檔案，如 db.json, pulic folder)</li>
+<li><code>hexo g / hexo generate</code> (產生靜態檔案)</li>
+<li><code>hexo d / hexo deploy</code> (部署到 Github)</li>
+<li><code>hexo server</code> (本地端啟動專案)</li>
+</ul>
+<hr>
+<h3 id="你可以探索的幾件事："><a href="#你可以探索的幾件事：" class="headerlink" title="你可以探索的幾件事："></a>你可以探索的幾件事：</h3><ul>
+<li>更換主題 <code>Hexo theme</code></li>
+<li>留言板功能 <code>Hexo Disqus</code></li>
+<li>部署至Github <code>Hexo deploy</code></li>
+<li>網站流量 <code>Google analysis</code></li>
+<li>Give me a cup of cafe 功能</li>
+</ul>
+<h6 id="關於其他進階設置的部分，可先參考網路其他大神資源，這邊先負責光速建立信心的部分-🦦"><a href="#關於其他進階設置的部分，可先參考網路其他大神資源，這邊先負責光速建立信心的部分-🦦" class="headerlink" title="關於其他進階設置的部分，可先參考網路其他大神資源，這邊先負責光速建立信心的部分 🦦"></a>關於其他進階設置的部分，可先參考網路其他大神資源，這邊先負責光速建立信心的部分 🦦</h6>]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Windows 10 - Jenkins forgot the password</title>
+    <url>/Note/note-jenkins-forgot-password/</url>
+    <content><![CDATA[<blockquote>
+<p>重設 Jenkins admin 密碼</p>
+</blockquote>
+<span id="more"></span>
+
+<ol>
+<li><p>到該路徑底下 <code>C:\Users\user\AppData\Local\Jenkins\.jenkins</code> 找到 config.xml 並打開</p>
+</li>
+<li><p>修改 <code>&lt;useSecurity&gt;</code></p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.1&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hudson</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">disabledAdministrativeMonitors</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.376<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">numExecutors</span>&gt;</span>2<span class="tag">&lt;/<span class="name">numExecutors</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mode</span>&gt;</span>NORMAL<span class="tag">&lt;/<span class="name">mode</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">useSecurity</span>&gt;</span>true<span class="tag">&lt;/<span class="name">useSecurity</span>&gt;</span>  // &lt;-------- false</span><br><span class="line">  <span class="tag">&lt;<span class="name">authorizationStrategy</span> <span class="attr">class</span>=<span class="string">&quot;hudson.security.AuthorizationStrategy$Unsecured&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">securityRealm</span> <span class="attr">class</span>=<span class="string">&quot;hudson.security.HudsonPrivateSecurityRealm&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">disableSignup</span>&gt;</span>true<span class="tag">&lt;/<span class="name">disableSignup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">enableCaptcha</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enableCaptcha</span>&gt;</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>重啟Jenkins，已經可以跳過登入步驟</p>
+</li>
+<li><p>到 <code>管理jenkins -&gt; security-&gt; 管理使用者 -&gt; 密碼</code> 重設新的密碼</p>
+</li>
+<li><p>回到 config.xml 將 <code>authorizationStrategy</code> 修改為須登入</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">authorizationStrategy</span> <span class="attr">class</span>=<span class="string">&quot;hudson.security.FullControlOnceLoggedInAuthorizationStrategy&quot;</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">denyAnonymousReadAccess</span>&gt;</span>true<span class="tag">&lt;/<span class="name">denyAnonymousReadAccess</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">authorizationStrategy</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The Q&amp;A of Bear</title>
+    <url>/Project/swift-bearqna/</url>
+    <content><![CDATA[<blockquote>
+<p>使用 shuffle 製作隨機出題小遊戲</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="APP-內容"><a href="#APP-內容" class="headerlink" title="APP 內容"></a>APP 內容</h4><ul>
+<li>題目為隨機出題</li>
+<li>答案選項順序隨機</li>
+<li>Play Again 重新挑戰遊戲</li>
+<li>使用 shuffle() 打亂順序</li>
+</ul>
+<h4 id="APP-畫面"><a href="#APP-畫面" class="headerlink" title="APP 畫面"></a>APP 畫面</h4><div >
+<div>
+<img src='https://miro.medium.com/max/640/1*TXfCemNWV97KxcmPyBafWA.png' width='180'/>
+<img src='https://miro.medium.com/max/640/1*IZziK6ua4MfrWGBmhOT4pA.png' width='180'/>
+<img src='https://miro.medium.com/max/640/1*L8ldjWVOV1DSAuKj2FFXrA.png' width='180'/>
+</div>
+</div>
+
+<h4 id="操作畫面"><a href="#操作畫面" class="headerlink" title="操作畫面"></a>操作畫面</h4><div style='text-align: center' >
+<img src='https://miro.medium.com/max/628/1*M-W2-eoLsKoi76CD91rJfg.gif' width='250'/>
+</div >
+
+<h4 id="程式碼片段"><a href="#程式碼片段" class="headerlink" title="程式碼片段"></a>程式碼片段</h4><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">qnas.shuffle() <span class="comment">// random question</span></span><br><span class="line">qnas[number].choice.shuffle() <span class="comment">// random choice</span></span><br></pre></td></tr></table></figure>
+<hr>
+
+<h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/BearQna">https://github.com/Junghc/BearQna</a></p>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>E book - Winnie the pooh</title>
+    <url>/Project/swift-ebook/</url>
+    <content><![CDATA[<blockquote>
+<p>初學 Swift，先以最簡單的拉元件方式快速完成小型的 IOS APP</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="App-內容"><a href="#App-內容" class="headerlink" title="App 內容"></a>App 內容</h4><ul>
+<li>主要角色介紹</li>
+<li>些許相關電影簡介（採用table controller列表顯示系列電影名稱）</li>
+<li>關於Winnie The Pooh 的 Q&amp;A</li>
+</ul>
+<h4 id="APP-畫面"><a href="#APP-畫面" class="headerlink" title="APP 畫面"></a>APP 畫面</h4><div >
+<div>
+<img src='https://miro.medium.com/max/640/1*wKhRjRd2GFiBO8nWob9a3Q.png' width='180'/>
+<img src='https://miro.medium.com/max/640/1*ZDIK7pPNBTohBmd3EdYC_w.png' width='180'/>
+<img src='https://miro.medium.com/max/640/1*2yK32zK_lBQy_fsNM_f1ng.png' width='180'/>
+</div>
+</div>
+
+<h4 id="操作畫面"><a href="#操作畫面" class="headerlink" title="操作畫面"></a>操作畫面</h4><div style='text-align: center' >
+<img src='https://miro.medium.com/max/640/1*0EHw8wePy3vYTZ9wx0h5wg.gif' width='250'/>
+</div >
+
+<hr>
+
+<h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/WinnieEBook">https://github.com/Junghc/WinnieEBook</a></p>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Foodie</title>
+    <url>/Project/swift-foodie/</url>
+    <content><![CDATA[<blockquote>
+<p>建立屬於自己的美食資料庫</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="App-內容"><a href="#App-內容" class="headerlink" title="App 內容"></a>App 內容</h4><ul>
+<li>撰寫屬於自己的美食日記</li>
+<li>資料皆會保存也可刪除編輯</li>
+<li>欄位未填寫完整會跳出提醒</li>
+</ul>
+<h4 id="APP-畫面"><a href="#APP-畫面" class="headerlink" title="APP 畫面"></a>APP 畫面</h4><div >
+<div>
+<img src='https://miro.medium.com/max/640/1*Z3ZyrVGBpGPJJnAVMa9bww.png' width='180'/>
+<img src='https://miro.medium.com/max/640/1*ed7S7Tl-oMZLc02hycNLPw.png' width='180'/>
+<img src='https://miro.medium.com/max/640/1*AJMX_34v9poR1uqrFvgjuA.png' width='180'/>
+</div>
+</div>
+
+<h4 id="操作畫面"><a href="#操作畫面" class="headerlink" title="操作畫面"></a>操作畫面</h4><div style='text-align: center' >
+<img src='https://miro.medium.com/max/640/1*VAfJwGrnuGinV8C-YpSIzw.gif' width='250'/>
+</div >
+
+
+<hr>
+
+
+<h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/Foodie">https://github.com/Junghc/Foodie</a></p>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Traveler</title>
+    <url>/Project/swift-traveler/</url>
+    <content><![CDATA[<blockquote>
+<p>網羅台灣各地的旅遊景點，並製作簡易旅遊日誌</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="App-內容"><a href="#App-內容" class="headerlink" title="App 內容"></a>App 內容</h4><ul>
+<li>觀光旅遊景點列表</li>
+<li>景點地圖功能 (MKMapView)</li>
+<li>旅遊日誌(新增、編輯、刪除)</li>
+</ul>
+<h4 id="APP-畫面"><a href="#APP-畫面" class="headerlink" title="APP 畫面"></a>APP 畫面</h4><div >
+<div>
+<img src='https://miro.medium.com/max/640/1*3lznmXF8shTH3e6rrymHgw.webp' width='180'/>
+<img src='https://miro.medium.com/max/640/1*fI3ax6lFR1DSdE09SayhcQ.webp' width='180'/>
+<img src='https://miro.medium.com/max/640/1*1gnVwL-OKaBqjLY9btRZFQ.webp' width='180'/>
+</div>
+</div>
+
+<h4 id="操作畫面"><a href="#操作畫面" class="headerlink" title="操作畫面"></a>操作畫面</h4><div style='text-align: center' >
+<img src='https://miro.medium.com/max/640/1*s5A3-cradO_-L01y1pncLg.gif' width='250'/>
+</div >
+
+<hr>
+
+
+<h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/Traveler">https://github.com/Junghc/Traveler</a></p>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Win10 - How to close the backup schedule</title>
+    <url>/Note/win10-close-backup/</url>
+    <content><![CDATA[<blockquote>
+<p>關閉 Windows 備份排程</p>
+</blockquote>
+<span id="more"></span>
+
+<h5 id="控制台-gt-系統及安全性-gt-備份與還原-gt-點選左側關閉排程選項"><a href="#控制台-gt-系統及安全性-gt-備份與還原-gt-點選左側關閉排程選項" class="headerlink" title="控制台 -&gt; 系統及安全性 -&gt; 備份與還原 -&gt; 點選左側關閉排程選項"></a>控制台 -&gt; 系統及安全性 -&gt; 備份與還原 -&gt; 點選左側關閉排程選項</h5><blockquote>
+<p>如圖：<br><img src="https://pic.pimg.tw/jj912068/1605677781-1824199742-g_n.png" ></p>
+</blockquote>
+<h6 id="解放你的-D-槽-🦦"><a href="#解放你的-D-槽-🦦" class="headerlink" title="解放你的 D 槽 🦦"></a>解放你的 D 槽 🦦</h6>]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+  </entry>
+</search>
