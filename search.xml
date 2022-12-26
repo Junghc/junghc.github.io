@@ -88,7 +88,7 @@
   </entry>
   <entry>
     <title>The Q&amp;A of Bear</title>
-    <url>/Project/swift-bearqna/</url>
+    <url>/project/swift-bearqna/</url>
     <content><![CDATA[<blockquote>
 <p>使用 shuffle 製作隨機出題小遊戲</p>
 </blockquote>
@@ -118,7 +118,7 @@
 <h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/BearQna">https://github.com/Junghc/BearQna</a></p>
 ]]></content>
       <categories>
-        <category>Project</category>
+        <category>project</category>
       </categories>
       <tags>
         <tag>swift</tag>
@@ -126,7 +126,7 @@
   </entry>
   <entry>
     <title>E book - Winnie the pooh</title>
-    <url>/Project/swift-ebook/</url>
+    <url>/project/swift-ebook/</url>
     <content><![CDATA[<blockquote>
 <p>初學 Swift，先以最簡單的拉元件方式快速完成小型的 IOS APP</p>
 </blockquote>
@@ -154,7 +154,7 @@
 <h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/WinnieEBook">https://github.com/Junghc/WinnieEBook</a></p>
 ]]></content>
       <categories>
-        <category>Project</category>
+        <category>project</category>
       </categories>
       <tags>
         <tag>swift</tag>
@@ -162,7 +162,7 @@
   </entry>
   <entry>
     <title>Foodie</title>
-    <url>/Project/swift-foodie/</url>
+    <url>/project/swift-foodie/</url>
     <content><![CDATA[<blockquote>
 <p>建立屬於自己的美食資料庫</p>
 </blockquote>
@@ -192,7 +192,7 @@
 <h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/Foodie">https://github.com/Junghc/Foodie</a></p>
 ]]></content>
       <categories>
-        <category>Project</category>
+        <category>project</category>
       </categories>
       <tags>
         <tag>swift</tag>
@@ -200,7 +200,7 @@
   </entry>
   <entry>
     <title>Traveler</title>
-    <url>/Project/swift-traveler/</url>
+    <url>/project/swift-traveler/</url>
     <content><![CDATA[<blockquote>
 <p>網羅台灣各地的旅遊景點，並製作簡易旅遊日誌</p>
 </blockquote>
@@ -229,7 +229,7 @@
 <h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a href="https://github.com/Junghc/Traveler">https://github.com/Junghc/Traveler</a></p>
 ]]></content>
       <categories>
-        <category>Project</category>
+        <category>project</category>
       </categories>
       <tags>
         <tag>swift</tag>
