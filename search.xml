@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Build cloud website with Infinityfree</title>
+    <url>/Note/build-cloud-website-with-infinityfree/</url>
+    <content><![CDATA[<blockquote>
+<p>PHP Cloud Hosting 雲端架站</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<p>一般如果你使用本地端的xampp進行架站，需要自行去申請網域，</p>
+<p>並且主機要一直開著，比較麻煩</p>
+<p>InfinityFree 是一個免費的虛擬主機服務，內建 PHP、MySQL，並提供免費的三個hosting account </p>
+<p>下面分三個階段來介紹 一一 建立主機、建立資料庫、上傳程式碼檔案</p>
+<h2 id="註冊帳號"><a href="#註冊帳號" class="headerlink" title="註冊帳號"></a>註冊帳號</h2><p><a href="https://www.infinityfree.net/">Infinityfree網址</a></p>
+<p>點選上述連結進入網站後</p>
+<p>點sign up now先進行註冊</p>
+<p>註冊完之後會來到client area的頁面 (如果沒有的話，從首頁右上方的client area進入 )</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613892903-1362314851-g_n.png"></p>
+<h2 id="建立主機"><a href="#建立主機" class="headerlink" title="建立主機"></a>建立主機</h2><p>點create account<br>第一步是命名你的subdomain和選你的後綴網域(這邊就是在設定你的網站網址)</p>
+<p>如果你有自己的網域，當然也可以選擇custom domain，要再去NameSilo做設定</p>
+<p>不過這邊不多做討論，有需要的人可以參考此<a href="https://forum.infinityfree.net/docs?topic=49232">網址</a></p>
+<p><img src="https://pic.pimg.tw/jj912068/1613892852-2987678325-g_n.png"><br><img src="https://pic.pimg.tw/jj912068/1613892942-3758127329-g_n.png"></p>
+<p>再來是帳號密碼的部分</p>
+<p>帳號都是由系統自動產生，密碼可以系統產生或是自行設定</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613892979-737067540-g_n.png"></p>
+<p>完成！</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893023-3424405498-g_n.png"></p>
+<p>接下來先到client area地方，這邊可以查看你的帳戶詳細的資訊</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893075-2460560105-g_n.png"></p>
+<p>label 的資訊裡面是你網站的網址</p>
+<p>下面是MySQL的相關資訊 包含username&#x2F;password&#x2F;hostname</p>
+<p>再來介紹上面按鈕的功能</p>
+<p>基本上就是使用前面這兩個 - <code>control panel</code>和<code>file manager</code></p>
+<p><strong>點control panel會進入到後台介面，file manager是放檔案,程式碼的地方</strong></p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893116-4129880963-g_n.png"></p>
+<h2 id="建立資料庫"><a href="#建立資料庫" class="headerlink" title="建立資料庫"></a>建立資料庫</h2><p>現在先建立我們的資料庫，所以先點選control panel進入到後台</p>
+<p>看到下方有一個MySQL  databases</p>
+<p>從這邊去建立我們的資料庫，</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893248-3372402328-g_n.png"></p>
+<p>一樣先命名資料庫，</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893286-3578490264-g_n.png"></p>
+<p>底下可以看到已經建立的資料庫有哪些</p>
+<p>上面也會顯示你的database name&#x2F;username&#x2F;hostname</p>
+<p>(login.php檔案會需要這些資料)</p>
+<p>password要去前面提到的client area頁面看</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893318-3174341460-g_n.png"></p>
+<p>再來是建立你的資料表，點選Admin進入</p>
+<p>進來到phpmyadmin頁面，在這邊建立你的table&#x2F;data</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893359-1693500671-g_n.png"></p>
+<h2 id="上傳程式碼檔案"><a href="#上傳程式碼檔案" class="headerlink" title="上傳程式碼檔案"></a>上傳程式碼檔案</h2><p>再來就是寫好的php檔案要放在哪裡</p>
+<p>先回到client area的頁面點選file manager</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893538-575952339-g_n.png"></p>
+<p>下面是檔案管理的畫面，</p>
+<p>你撰寫的php檔案或是其他檔案，<strong>一定要放進file manager裡面的htdocs資料夾</strong></p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893511-870095913-g_n.png"></p>
+<p>file manager裡面可以upload事先寫好的檔案</p>
+<p>或是直接建立一個新的，直接在上面的簡易編輯器coding</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613893976-3064136302-g_n.png"></p>
+<p>若要對現有的檔案做修改，點一下就可以線上編輯，非常方便</p>
+<p><img src="https://pic.pimg.tw/jj912068/1613894001-200358339-g_n.png"></p>
+<p>如果前面資料庫建立好，檔案也都有放到htdocs資料夾，</p>
+<p>以及php連線資訊修改成雲端上的資訊(就是login.php)</p>
+<p>在瀏覽器打上自己的網址，可以看到網站已經在雲端上架設完成！！ 🦦</p>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Build blog with hexo</title>
     <url>/Tutorial/note-hexo-first/</url>
     <content><![CDATA[<blockquote>
