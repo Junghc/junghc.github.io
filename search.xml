@@ -70,6 +70,49 @@
       </categories>
   </entry>
   <entry>
+    <title>Java 常用資料結構</title>
+    <url>/Note/java-basic-structure/</url>
+    <content><![CDATA[<blockquote>
+<p>List、Set、Queue &#x3D;&gt; Collection (Collections： methods)<br>Map</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>ArrayList：搜尋佳</li>
+<li>LinkedList：插入、刪除佳</li>
+<li>Stack：FILO (push、pop)</li>
+</ul>
+<hr>
+<ul>
+<li><p>Set：元素不可重複</p>
+</li>
+<li><p>TreeSet：使用者自訂排序</p>
+</li>
+<li><p>HashSet：快速取出、無序 </p>
+</li>
+<li><p>LinkedHashSet：存放順序與新增時相同</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Queue：FIFO (offer、poll)<blockquote>
+<p>Stack、Queue 之 peek() 方法用來檢視，不會刪除</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Map：key-value 型態</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Build blog with hexo</title>
     <url>/Tutorial/note-hexo-first/</url>
     <content><![CDATA[<blockquote>
@@ -321,7 +364,7 @@
       </categories>
   </entry>
   <entry>
-    <title>Third Party Login with Google - Create Credentials</title>
+    <title>Third party login with Google - Create credentials</title>
     <url>/Tutorial/third-party-login-with-google-1/</url>
     <content><![CDATA[<blockquote>
 <p>從申請 Google OAuth2.0 憑證到應用 - 申請憑證</p>
