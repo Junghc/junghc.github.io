@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>About Database</title>
+    <url>/Note/about-db/</url>
+    <content><![CDATA[<blockquote>
+<p>關於 Database 的一些 Note</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><blockquote>
+<p> Transaction: 一串資料對DB執行Read&#x2F;Write，trnsaction內所有操作完成&#x2F;不完成 (InnoDB特有)</p>
+</blockquote>
+<ul>
+<li>Atomicity: 若發生意外，rollback到未執行時狀態</li>
+<li>Consistency: 交易完成，維持資料完整性</li>
+<li>Isolation: 多個交易同時獨立執行</li>
+<li>Durability: 交易完成，異動結果完整保留</li>
+</ul>
+<h2 id="SQL-amp-NoSQL-差異"><a href="#SQL-amp-NoSQL-差異" class="headerlink" title="SQL &amp; NoSQL 差異"></a>SQL &amp; NoSQL 差異</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>SQL</th>
+<th>NoSQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>資料</td>
+<td>Table之間串聯</td>
+<td>JSON格式儲存資料，key-value型態</td>
+</tr>
+<tr>
+<td>優點</td>
+<td>資料一致性、完整</td>
+<td>處理大量的結構化資料、易擴展</td>
+</tr>
+<tr>
+<td>缺點</td>
+<td>複雜場景、關係操作不易</td>
+<td>缺乏標準化</td>
+</tr>
+<tr>
+<td>舉例</td>
+<td>處理金融信息和交易</td>
+<td>資料分析、事件紀錄</td>
+</tr>
+</tbody></table>
+<h2 id="資料庫正規化"><a href="#資料庫正規化" class="headerlink" title="資料庫正規化"></a>資料庫正規化</h2><ol>
+<li>Primary key、消除意義上重複的欄位(性別、Gender)、欄位保持單一值</li>
+<li>消除部分相依(Foreign key概念)</li>
+<li>消除遞移相依(欄位與主鍵無直接關係，舉例：避免數量改變而總金額沒改到造成資料錯誤，應把總金額欄位移除。)</li>
+</ol>
+<h2 id="建立-index-規則"><a href="#建立-index-規則" class="headerlink" title="建立 index 規則"></a>建立 index 規則</h2><ul>
+<li>常拿來做條件判斷的欄位</li>
+<li>欄位不要NULL、欄位內的值不大不用</li>
+<li>Foreign key</li>
+</ul>
+<h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><ul>
+<li>Spring Data JPA(JpaRepository，底層實現hibernate)</li>
+<li>JDBC透過 Java 來連接資料庫的一種技術</li>
+<li>ORM(概念)物件關係的映射</li>
+<li>JPA(規範) 來映射「物件的欄位」與「表的欄位」之間的對應關係 (@Column…)</li>
+<li>遵循 JPA 規範的 ORM 框架: Spring Data JPA、Hibernate</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Build cloud website with Infinityfree</title>
     <url>/Note/build-cloud-website-with-infinityfree/</url>
     <content><![CDATA[<blockquote>
@@ -70,7 +138,7 @@
       </categories>
   </entry>
   <entry>
-    <title>Java 常用資料結構</title>
+    <title>Java basic data structure</title>
     <url>/Note/java-basic-structure/</url>
     <content><![CDATA[<blockquote>
 <p>List、Set、Queue &#x3D;&gt; Collection (Collections： methods)<br>Map</p>
