@@ -28,7 +28,7 @@
 <meta property="og:description" content="關於 Database 的一些 Note">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-20T11:26:34.000Z">
-<meta property="article:modified_time" content="2023-02-20T11:34:14.176Z">
+<meta property="article:modified_time" content="2023-02-28T15:09:12.227Z">
 <meta property="article:author" content="Jupiter pluvius">
 <meta name="twitter:card" content="summary">
 
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">4</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">13</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,10 +224,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-02-20 19:26:34 / Modified: 19:34:14" itemprop="dateCreated datePublished" datetime="2023-02-20T19:26:34+08:00">2023-02-20</time>
+              <time title="Created: 2023-02-20 19:26:34" itemprop="dateCreated datePublished" datetime="2023-02-20T19:26:34+08:00">2023-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-02-28 23:09:12" itemprop="dateModified" datetime="2023-02-28T23:09:12+08:00">2023-02-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -323,6 +329,23 @@
 <li>JPA(規範) 來映射「物件的欄位」與「表的欄位」之間的對應關係 (@Column…)</li>
 <li>遵循 JPA 規範的 ORM 框架: Spring Data JPA、Hibernate</li>
 </ul>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h2><ul>
+<li><p>如何優化SQL?</p>
+<blockquote>
+<p>可使用explain分析SQL query (加index&#x2F;建立view)</p>
+</blockquote>
+</li>
+<li><p>使用索引</p>
+</li>
+<li><p>選擇適當的type</p>
+</li>
+<li><p>使用Join替代子查詢</p>
+</li>
+<li><p>避免掃描整張表、臨時表</p>
+</li>
+<li><p>避免 select *</p>
+</li>
+</ul>
 
     </div>
 
@@ -341,7 +364,10 @@
     <a href="/Tutorial/third-party-login-with-google-2/" rel="prev" title="Third party login with Google - Application (postman)">
       <i class="fa fa-chevron-left"></i> Third party login with Google - Application (postman)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/Note/spring-framework/" rel="next" title="Spring framework">
+      Spring framework <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -407,7 +433,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Database"><span class="nav-number">1.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-amp-NoSQL-%E5%B7%AE%E7%95%B0"><span class="nav-number">2.</span> <span class="nav-text">SQL &amp; NoSQL 差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%BA%AB%E6%AD%A3%E8%A6%8F%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">資料庫正規化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-index-%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">建立 index 規則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate"><span class="nav-number">5.</span> <span class="nav-text">Hibernate</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Database"><span class="nav-number">1.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-amp-NoSQL-%E5%B7%AE%E7%95%B0"><span class="nav-number">2.</span> <span class="nav-text">SQL &amp; NoSQL 差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%BA%AB%E6%AD%A3%E8%A6%8F%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">資料庫正規化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-index-%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">建立 index 規則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate"><span class="nav-number">5.</span> <span class="nav-text">Hibernate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">6.</span> <span class="nav-text">Q &amp; A</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -423,7 +449,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -436,7 +462,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

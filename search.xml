@@ -63,6 +63,23 @@
 <li>JPA(規範) 來映射「物件的欄位」與「表的欄位」之間的對應關係 (@Column…)</li>
 <li>遵循 JPA 規範的 ORM 框架: Spring Data JPA、Hibernate</li>
 </ul>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h2><ul>
+<li><p>如何優化SQL?</p>
+<blockquote>
+<p>可使用explain分析SQL query (加index&#x2F;建立view)</p>
+</blockquote>
+</li>
+<li><p>使用索引</p>
+</li>
+<li><p>選擇適當的type</p>
+</li>
+<li><p>使用Join替代子查詢</p>
+</li>
+<li><p>避免掃描整張表、臨時表</p>
+</li>
+<li><p>避免 select *</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Note</category>
@@ -265,6 +282,52 @@
       </categories>
       <tags>
         <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring framework</title>
+    <url>/Note/spring-framework/</url>
+    <content><![CDATA[<blockquote>
+<p>介紹 Spring framework 相關，核心 -&gt; IOC&#x2F;DI&#x2F;AOP</p>
+</blockquote>
+<span id="more"></span>
+
+
+<h4 id="Ioc-x2F-DI"><a href="#Ioc-x2F-DI" class="headerlink" title="Ioc&#x2F;DI"></a>Ioc&#x2F;DI</h4><blockquote>
+<p>DI實現Ioc</p>
+</blockquote>
+<ul>
+<li>不用自行new 實例，透過Spring注入稱DI -&gt; 整個行為代表Ioc<br>(new 的控制權從我們反轉至Spring)</li>
+</ul>
+<h4 id="AOP-動態代理、使用-Transactional"><a href="#AOP-動態代理、使用-Transactional" class="headerlink" title="AOP: 動態代理、使用@Transactional"></a>AOP: 動態代理、使用@Transactional</h4><h4 id="Spring-Boot-自動配置"><a href="#Spring-Boot-自動配置" class="headerlink" title="Spring Boot: 自動配置"></a>Spring Boot: 自動配置</h4><h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><ul>
+<li><p>Model: 進行資料管理和資料庫設計</p>
+</li>
+<li><p>View: 前端網頁的資料呈現</p>
+</li>
+<li><p>Controller: 處理請求</p>
+</li>
+<li><p>邏輯處理程式架構 <code>Controller -&gt; ApiService(Data preproccess、ApiResponse) -&gt; Service(interface) -&gt; ServiceImplement(SQL、Hibernate)</code></p>
+</li>
+</ul>
+<h4 id="Design-Pattern"><a href="#Design-Pattern" class="headerlink" title="Design Pattern"></a>Design Pattern</h4><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/114244039">https://zhuanlan.zhihu.com/p/114244039</a></p>
+</blockquote>
+<ul>
+<li><code>BeanFactory</code>: @Component</li>
+<li><code>Singleton</code>:  檢查是否存在實例，若無則鎖住並處理</li>
+<li><code>HandlerAdatper</code>: 每一種Controller有一對應的HandlerAdatper Implement，讓其代替controller執行相對應的方法。擴展Controller上，僅需增加HandlerAdatper即完成SpringMVC之擴展。</li>
+<li><code>Wrapper &amp; Decorator</code></li>
+<li><code>AOP</code>: 程式的前或後(或前後)執行其他的程式，不影響到原本的業務邏輯 (交易過程中的身分驗證)</li>
+<li><code>Observer</code>: 使用Listener</li>
+<li><code>Strategy</code>: 使用Resource (針對不同的的底層資源，提供方法使用)</li>
+<li><code>Template</code>: Hibernate</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
