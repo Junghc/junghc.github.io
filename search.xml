@@ -510,7 +510,9 @@
 <li>SaaS</li>
 <li>Kafka</li>
 <li>Redis</li>
-<li>Restful API</li>
+<li>Restful API </li>
+<li>Git</li>
+<li>Docker</li>
 </ul>
 </blockquote>
 <span id="more"></span>
@@ -546,6 +548,19 @@
 <li>使用 web data format (JSON, YAML…)</li>
 <li>快取增加效能 (同操作&#x2F;資源，直接取用本地端資源)</li>
 <li>Client&#x2F;Server 分離</li>
+</ul>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>master*: 穩定、可上線版本 (The commit has version no.)</li>
+<li>develop*: 開發基礎</li>
+<li>hotfix: 緊急問題處理，從master分支出來，修正完後合併回master及develop</li>
+<li>release: 上線版本前的最終測試</li>
+<li>feature: 從develop分支出來、新增的功能在此開發</li>
+</ul>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
+<li>Image: 模板，如環境、服務、作業系統</li>
+<li>Container: 執行的應用程式</li>
+<li>Dockerfile: 撰寫指令打包成image</li>
+<li>Docker Compose: 執行多個container</li>
 </ul>
 ]]></content>
       <categories>
