@@ -322,6 +322,28 @@
 <li><code>Strategy</code>: 使用Resource (針對不同的的底層資源，提供方法使用)</li>
 <li><code>Template</code>: Hibernate</li>
 </ul>
+<h4 id="Spring-amp-Spring-Boot-Diff"><a href="#Spring-amp-Spring-Boot-Diff" class="headerlink" title="Spring &amp; Spring Boot Diff"></a>Spring &amp; Spring Boot Diff</h4><h5 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h5><blockquote>
+<p>provides comprehensive infrastructure support for developing Java applications.</p>
+</blockquote>
+<p>(Modules)</p>
+<ul>
+<li>Spring JDBC</li>
+<li>Spring MVC</li>
+<li>Spring Security</li>
+<li>Spring AOP</li>
+<li>Spring ORM</li>
+<li>Spring Test</li>
+</ul>
+<h5 id="Spring-Boot-Extends-spring"><a href="#Spring-Boot-Extends-spring" class="headerlink" title="Spring Boot (Extends spring)"></a>Spring Boot (Extends spring)</h5><blockquote>
+<p>Embadded server, Automatic config</p>
+</blockquote>
+<ul>
+<li>spring-boot-starter-data-jpa</li>
+<li>spring-boot-starter-security</li>
+<li>spring-boot-starter-test</li>
+<li>spring-boot-starter-web</li>
+<li>spring-boot-starter-thymeleaf</li>
+</ul>
 ]]></content>
       <categories>
         <category>Note</category>
@@ -478,6 +500,57 @@
       <tags>
         <tag>swift</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Introduction of the technical noun</title>
+    <url>/Note/tech-noun-introduction/</url>
+    <content><![CDATA[<blockquote>
+<ul>
+<li>DevOps</li>
+<li>SaaS</li>
+<li>Kafka</li>
+<li>Redis</li>
+<li>Restful API</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><ul>
+<li>敏捷開發</li>
+<li>CI&#x2F;CD</li>
+<li>自動化測試</li>
+<li>持續監控、分析</li>
+</ul>
+<h2 id="Saas"><a href="#Saas" class="headerlink" title="Saas"></a>Saas</h2><ul>
+<li>軟體即服務 (ex. gmail 提供企業 email 服務，不用自行開發 email 系統)</li>
+</ul>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><p>(MQTT: punlish&#x2F;subscribe communication pattern)</p>
+<ul>
+<li>高吞吐、低延遲、高伸縮</li>
+<li>適用大量資料 -&gt; 活動追蹤</li>
+<li>類MQTT加強版，可規模化、持久儲存、大量數據</li>
+</ul>
+<p>Device <code>&lt;subscribe-publish&gt;</code> Broker (Server) <code>&lt;publish-subscribe&gt;</code>  Client</p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><blockquote>
+<p>解決原本資料庫負載太重問題 (使用 NoSQL)</p>
+</blockquote>
+<ul>
+<li>in-memory key-value database 處理即時大量資料</li>
+</ul>
+<h2 id="Restful-API"><a href="#Restful-API" class="headerlink" title="Restful API"></a>Restful API</h2><blockquote>
+<p>每個API負責一件事</p>
+</blockquote>
+<ul>
+<li>統一接口，透過 HTTP method (GET&#x2F;POST&#x2F;PUT&#x2F;DELETE) 進行不同操作</li>
+<li>Stateless，即一個網址即能取得資源，不會依賴其他資源 (Disable: Call A and then Call B)</li>
+<li>使用 web data format (JSON, YAML…)</li>
+<li>快取增加效能 (同操作&#x2F;資源，直接取用本地端資源)</li>
+<li>Client&#x2F;Server 分離</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
   </entry>
   <entry>
     <title>Win10 - How to close the backup schedule</title>
