@@ -66,7 +66,7 @@
 <h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h2><ul>
 <li><p>如何優化SQL?</p>
 <blockquote>
-<p>可使用explain分析SQL query (加index&#x2F;建立view)</p>
+<p>可使用explain分析SQL query (加index&#x2F;建立view)<br><a href="https://zhuanlan.zhihu.com/p/281517471">explain 解讀</a></p>
 </blockquote>
 </li>
 <li><p>使用索引</p>
@@ -188,6 +188,78 @@
 <hr>
 <ul>
 <li>Map：key-value 型態</li>
+<li>HashMap : 插入刪除速度快</li>
+<li>TreeMap : 有序</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java Knowledge</title>
+    <url>/Note/java-knowledge/</url>
+    <content><![CDATA[<blockquote>
+<p>Environment、OOP、Abstract&#x2F;Interface、</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="JDK-x2F-JRE-x2F-JVM"><a href="#JDK-x2F-JRE-x2F-JVM" class="headerlink" title="JDK&#x2F;JRE&#x2F;JVM"></a>JDK&#x2F;JRE&#x2F;JVM</h2><ul>
+<li>JDK: 來編譯、除錯程式</li>
+<li>JRE: java class library</li>
+<li>JVM: 虛擬機、讓程式能夠跨平台</li>
+</ul>
+<h2 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h2><ul>
+<li>封裝：保留方法給外部使用，將內部實現邏輯隱藏</li>
+<li>繼承：減少重複程式碼</li>
+<li>多型：overloading -&gt; 同method，不同parameter &#x2F; override -&gt; 改寫父類別</li>
+</ul>
+<h2 id="Abstract-class-amp-Interface"><a href="#Abstract-class-amp-Interface" class="headerlink" title="Abstract class &amp; Interface"></a>Abstract class &amp; Interface</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Abstract</th>
+<th>Interface</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>介紹</td>
+<td>只定義抽象函數名字，供子類別實作</td>
+<td>只有抽象函數</td>
+</tr>
+<tr>
+<td>父</td>
+<td>繼承一個類別</td>
+<td>多個</td>
+</tr>
+<tr>
+<td>子</td>
+<td>extends 一個類別</td>
+<td>implements 多個</td>
+</tr>
+<tr>
+<td>應用</td>
+<td>關係密切之類別，Car -&gt; Benz, Audi</td>
+<td>Fly -&gt; Airplane, Bird</td>
+</tr>
+<tr>
+<td>解釋</td>
+<td>is a</td>
+<td>like a</td>
+</tr>
+</tbody></table>
+<h2 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h2><blockquote>
+<p>避免不同 Thread 同時間存取同資源</p>
+</blockquote>
+<h2 id="高內聚、低耦合"><a href="#高內聚、低耦合" class="headerlink" title="高內聚、低耦合"></a>高內聚、低耦合</h2><blockquote>
+<p>提升各模組功能的重用性、擴展性、維護性 (盡可能不影響現有功能的前提下，完成需求異動的修改的目標)。</p>
+</blockquote>
+<ul>
+<li>耦合(Coupling): 兩個模組間的關連性或相依性</li>
+<li>內聚: 模組本身不需依賴其他模組，就能完成工作</li>
 </ul>
 ]]></content>
       <categories>
