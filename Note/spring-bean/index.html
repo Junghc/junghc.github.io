@@ -20,25 +20,20 @@
     var CONFIG = {"hostname":"junghc.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="使用 shuffle 製作隨機出題小遊戲">
+  <meta name="description" content="Spring 常用註解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Q&amp;A of Bear">
-<meta property="og:url" content="https://junghc.github.io/project/swift-bearqna/index.html">
+<meta property="og:title" content="Spring annotation">
+<meta property="og:url" content="https://junghc.github.io/Note/spring-bean/index.html">
 <meta property="og:site_name" content="De完Bug好下班">
-<meta property="og:description" content="使用 shuffle 製作隨機出題小遊戲">
+<meta property="og:description" content="Spring 常用註解">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://miro.medium.com/max/640/1*TXfCemNWV97KxcmPyBafWA.png">
-<meta property="og:image" content="https://miro.medium.com/max/640/1*IZziK6ua4MfrWGBmhOT4pA.png">
-<meta property="og:image" content="https://miro.medium.com/max/640/1*L8ldjWVOV1DSAuKj2FFXrA.png">
-<meta property="og:image" content="https://miro.medium.com/max/628/1*M-W2-eoLsKoi76CD91rJfg.gif">
-<meta property="article:published_time" content="2022-11-21T14:21:04.000Z">
-<meta property="article:modified_time" content="2022-12-26T16:15:36.778Z">
+<meta property="article:published_time" content="2023-04-12T13:50:55.000Z">
+<meta property="article:modified_time" content="2023-04-12T14:10:15.238Z">
 <meta property="article:author" content="Jupiter pluvius">
-<meta property="article:tag" content="swift">
+<meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://miro.medium.com/max/640/1*TXfCemNWV97KxcmPyBafWA.png">
 
-<link rel="canonical" href="https://junghc.github.io/project/swift-bearqna/">
+<link rel="canonical" href="https://junghc.github.io/Note/spring-bean/">
 
 
 <script id="page-configurations">
@@ -51,7 +46,7 @@
   };
 </script>
 
-  <title>The Q&A of Bear | De完Bug好下班</title>
+  <title>Spring annotation | De完Bug好下班</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GDWFFTT3Y"></script>
     <script>
@@ -208,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://junghc.github.io/project/swift-bearqna/">
+    <link itemprop="mainEntityOfPage" href="https://junghc.github.io/Note/spring-bean/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif">
@@ -221,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          The Q&A of Bear
+          Spring annotation
         </h1>
 
         <div class="post-meta">
@@ -230,23 +225,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-11-21 22:21:04" itemprop="dateCreated datePublished" datetime="2022-11-21T22:21:04+08:00">2022-11-21</time>
+              <time title="Created: 2023-04-12 21:50:55 / Modified: 22:10:15" itemprop="dateCreated datePublished" datetime="2023-04-12T21:50:55+08:00">2023-04-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-27 00:15:36" itemprop="dateModified" datetime="2022-12-27T00:15:36+08:00">2022-12-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/project/" itemprop="url" rel="index"><span itemprop="name">project</span></a>
+                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
                 </span>
             </span>
 
@@ -259,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/project/swift-bearqna/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="project/swift-bearqna/" itemprop="commentCount"></span>
+    <a title="disqus" href="/Note/spring-bean/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Note/spring-bean/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,32 +265,29 @@
 
       
         <blockquote>
-<p>使用 shuffle 製作隨機出題小遊戲</p>
+<p>Spring 常用註解</p>
 </blockquote>
 <span id="more"></span>
 
-<h4 id="APP-內容"><a href="#APP-內容" class="headerlink" title="APP 內容"></a>APP 內容</h4><ul>
-<li>題目為隨機出題</li>
-<li>答案選項順序隨機</li>
-<li>Play Again 重新挑戰遊戲</li>
-<li>使用 shuffle() 打亂順序</li>
+<h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2><ul>
+<li>@Autowired: 依類<code>類型</code>，導入依賴之bean</li>
+<li>@Resource: 依類<code>名稱</code>，導入依賴之bean (ex. @Resource(name&#x3D;”resourceName”))</li>
+<li>@Component: 標註任意類為Spring組件</li>
+<li>@Repository: 標註Dao層</li>
+<li>@Service: 業務邏輯類</li>
+<li>@Configuration: 配置</li>
+<li>@Bean: 宣告一Bean物件，交由Spring 管理</li>
 </ul>
-<h4 id="APP-畫面"><a href="#APP-畫面" class="headerlink" title="APP 畫面"></a>APP 畫面</h4><div >
-<div>
-<img src='https://miro.medium.com/max/640/1*TXfCemNWV97KxcmPyBafWA.png' width='180'/>
-<img src='https://miro.medium.com/max/640/1*IZziK6ua4MfrWGBmhOT4pA.png' width='180'/>
-<img src='https://miro.medium.com/max/640/1*L8ldjWVOV1DSAuKj2FFXrA.png' width='180'/>
-</div>
-</div>
-
-<h4 id="操作畫面"><a href="#操作畫面" class="headerlink" title="操作畫面"></a>操作畫面</h4><div style='text-align: center' >
-<img src='https://miro.medium.com/max/628/1*M-W2-eoLsKoi76CD91rJfg.gif' width='250'/>
-</div >
-
-<h4 id="程式碼片段"><a href="#程式碼片段" class="headerlink" title="程式碼片段"></a>程式碼片段</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qnas.shuffle() <span class="comment">// random question</span></span><br><span class="line">qnas[number].choice.shuffle() <span class="comment">// random choice</span></span><br></pre></td></tr></table></figure>
-<hr>
-
-<h4 id="Github專案連結"><a href="#Github專案連結" class="headerlink" title="Github專案連結"></a>Github專案連結</h4><p><a target="_blank" rel="noopener" href="https://github.com/Junghc/BearQna">https://github.com/Junghc/BearQna</a></p>
+<h2 id="配置相關"><a href="#配置相關" class="headerlink" title="配置相關"></a>配置相關</h2><ul>
+<li>@Value: 在Spring管理之Bean中，可取得配置文件中的屬性值</li>
+</ul>
+<h2 id="參數檢查"><a href="#參數檢查" class="headerlink" title="參數檢查"></a>參數檢查</h2><ul>
+<li>@NotEmpty: 不能NULL，不能空</li>
+<li>@NotBlank: 不能NULL，須包含一字元(不為空白字元)</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>@Transactional: 標註在<code>類</code>或<code>方法</code>上，遇異常則rollback</li>
+</ul>
 
     </div>
 
@@ -311,7 +297,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/swift/" rel="tag"># swift</a>
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
           </div>
 
         
@@ -320,13 +306,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/project/swift-ebook/" rel="prev" title="E book - Winnie the pooh">
-      <i class="fa fa-chevron-left"></i> E book - Winnie the pooh
+    <a href="/Note/java-knowledge/" rel="prev" title="Java Knowledge">
+      <i class="fa fa-chevron-left"></i> Java Knowledge
     </a></div>
-      <div class="post-nav-item">
-    <a href="/project/swift-foodie/" rel="next" title="Foodie">
-      Foodie <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -392,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#APP-%E5%85%A7%E5%AE%B9"><span class="nav-number">1.</span> <span class="nav-text">APP 內容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#APP-%E7%95%AB%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">APP 畫面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%95%AB%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">操作畫面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%89%87%E6%AE%B5"><span class="nav-number">4.</span> <span class="nav-text">程式碼片段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Github%E5%B0%88%E6%A1%88%E9%80%A3%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">Github專案連結</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Bean"><span class="nav-number">1.</span> <span class="nav-text">Spring Bean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%9B%B8%E9%97%9C"><span class="nav-number">2.</span> <span class="nav-text">配置相關</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E6%AA%A2%E6%9F%A5"><span class="nav-number">3.</span> <span class="nav-text">參數檢查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -524,9 +507,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://junghc.github.io/project/swift-bearqna/";
-    this.page.identifier = "project/swift-bearqna/";
-    this.page.title = "The Q&A of Bear";
+    this.page.url = "https://junghc.github.io/Note/spring-bean/";
+    this.page.identifier = "Note/spring-bean/";
+    this.page.title = "Spring annotation";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

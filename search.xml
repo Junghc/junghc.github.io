@@ -357,6 +357,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Spring annotation</title>
+    <url>/Note/spring-bean/</url>
+    <content><![CDATA[<blockquote>
+<p>Spring 常用註解</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2><ul>
+<li>@Autowired: 依類<code>類型</code>，導入依賴之bean</li>
+<li>@Resource: 依類<code>名稱</code>，導入依賴之bean (ex. @Resource(name&#x3D;”resourceName”))</li>
+<li>@Component: 標註任意類為Spring組件</li>
+<li>@Repository: 標註Dao層</li>
+<li>@Service: 業務邏輯類</li>
+<li>@Configuration: 配置</li>
+<li>@Bean: 宣告一Bean物件，交由Spring 管理</li>
+</ul>
+<h2 id="配置相關"><a href="#配置相關" class="headerlink" title="配置相關"></a>配置相關</h2><ul>
+<li>@Value: 在Spring管理之Bean中，可取得配置文件中的屬性值</li>
+</ul>
+<h2 id="參數檢查"><a href="#參數檢查" class="headerlink" title="參數檢查"></a>參數檢查</h2><ul>
+<li>@NotEmpty: 不能NULL，不能空</li>
+<li>@NotBlank: 不能NULL，須包含一字元(不為空白字元)</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>@Transactional: 標註在<code>類</code>或<code>方法</code>上，遇異常則rollback</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring framework</title>
     <url>/Note/spring-framework/</url>
     <content><![CDATA[<blockquote>
@@ -371,7 +406,13 @@
 <ul>
 <li>不用自行new 實例，透過Spring注入稱DI -&gt; 整個行為代表Ioc<br>(new 的控制權從我們反轉至Spring)</li>
 </ul>
-<h4 id="AOP-動態代理、使用-Transactional"><a href="#AOP-動態代理、使用-Transactional" class="headerlink" title="AOP: 動態代理、使用@Transactional"></a>AOP: 動態代理、使用@Transactional</h4><h4 id="Spring-Boot-自動配置"><a href="#Spring-Boot-自動配置" class="headerlink" title="Spring Boot: 自動配置"></a>Spring Boot: 自動配置</h4><h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><ul>
+<h4 id="AOP-動態代理、使用-Transactional"><a href="#AOP-動態代理、使用-Transactional" class="headerlink" title="AOP: 動態代理、使用@Transactional"></a>AOP: 動態代理、使用@Transactional</h4><blockquote>
+<p>@Transactional: 常用在類別或方法上，遇到異常則 Rollback</p>
+</blockquote>
+<h4 id="Spring-Boot-自動配置"><a href="#Spring-Boot-自動配置" class="headerlink" title="Spring Boot: 自動配置"></a>Spring Boot: 自動配置</h4><blockquote>
+<a href="/Note/spring-bean/" title="Spring annotation">Spring 常用註解</a>
+</blockquote>
+<h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><ul>
 <li><p>Model: 進行資料管理和資料庫設計</p>
 </li>
 <li><p>View: 前端網頁的資料呈現</p>
@@ -385,14 +426,14 @@
 <p><a href="https://zhuanlan.zhihu.com/p/114244039">https://zhuanlan.zhihu.com/p/114244039</a></p>
 </blockquote>
 <ul>
-<li><code>BeanFactory</code>: @Component</li>
-<li><code>Singleton</code>:  檢查是否存在實例，若無則鎖住並處理</li>
+<li><code>BeanFactory</code>: @Component (工廠模式)</li>
+<li><code>Singleton</code>:  檢查是否存在實例，若無則鎖住並處理 (Bean)</li>
 <li><code>HandlerAdatper</code>: 每一種Controller有一對應的HandlerAdatper Implement，讓其代替controller執行相對應的方法。擴展Controller上，僅需增加HandlerAdatper即完成SpringMVC之擴展。</li>
-<li><code>Wrapper &amp; Decorator</code></li>
+<li><code>Wrapper &amp; Decorator</code>: 連接多個資料庫可使用，動態切換不同資料庫</li>
 <li><code>AOP</code>: 程式的前或後(或前後)執行其他的程式，不影響到原本的業務邏輯 (交易過程中的身分驗證)</li>
 <li><code>Observer</code>: 使用Listener</li>
 <li><code>Strategy</code>: 使用Resource (針對不同的的底層資源，提供方法使用)</li>
-<li><code>Template</code>: Hibernate</li>
+<li><code>Template</code>: Hibernate、RestTemplate</li>
 </ul>
 <h4 id="Spring-amp-Spring-Boot-Diff"><a href="#Spring-amp-Spring-Boot-Diff" class="headerlink" title="Spring &amp; Spring Boot Diff"></a>Spring &amp; Spring Boot Diff</h4><h5 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h5><blockquote>
 <p>provides comprehensive infrastructure support for developing Java applications.</p>
