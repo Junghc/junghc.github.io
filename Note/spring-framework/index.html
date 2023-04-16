@@ -28,7 +28,7 @@
 <meta property="og:description" content="介紹 Spring framework 相關，核心 -&gt; IOC&#x2F;DI&#x2F;AOP">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-28T14:55:59.000Z">
-<meta property="article:modified_time" content="2023-04-12T14:16:14.476Z">
+<meta property="article:modified_time" content="2023-04-16T06:18:54.972Z">
 <meta property="article:author" content="Jupiter pluvius">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">16</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-12 22:16:14" itemprop="dateModified" datetime="2023-04-12T22:16:14+08:00">2023-04-12</time>
+                <time title="Modified: 2023-04-16 14:18:54" itemprop="dateModified" datetime="2023-04-16T14:18:54+08:00">2023-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +275,16 @@
 </blockquote>
 <span id="more"></span>
 
-
+<h4 id="Spring-簡化Java開發"><a href="#Spring-簡化Java開發" class="headerlink" title="Spring: 簡化Java開發"></a>Spring: 簡化Java開發</h4><ul>
+<li>IOC: 耦合管理(兩個模組間的關連性或相依性)</li>
+<li>AOP: 可重用的功能，不影響原服務邏輯</li>
+</ul>
+<h4 id="Spring-Boot-簡化-Spring-應用開發"><a href="#Spring-Boot-簡化-Spring-應用開發" class="headerlink" title="Spring Boot: 簡化 Spring 應用開發"></a>Spring Boot: 簡化 Spring 應用開發</h4><ul>
+<li><code>自動配置</code>應用程式及框架所需的基本配置(如 properties 相關)</li>
+<li>嵌入式 Servlet，不用打包成war檔</li>
+<li>簡化 Maven 配置</li>
+<li><a href="/Note/spring-bean/" title="Spring annotation">參考 Spring 常用註解</a></li>
+</ul>
 <h4 id="Ioc-x2F-DI"><a href="#Ioc-x2F-DI" class="headerlink" title="Ioc&#x2F;DI"></a>Ioc&#x2F;DI</h4><blockquote>
 <p>DI實現Ioc</p>
 </blockquote>
@@ -284,9 +293,6 @@
 </ul>
 <h4 id="AOP-動態代理、使用-Transactional"><a href="#AOP-動態代理、使用-Transactional" class="headerlink" title="AOP: 動態代理、使用@Transactional"></a>AOP: 動態代理、使用@Transactional</h4><blockquote>
 <p>@Transactional: 常用在類別或方法上，遇到異常則 Rollback</p>
-</blockquote>
-<h4 id="Spring-Boot-自動配置"><a href="#Spring-Boot-自動配置" class="headerlink" title="Spring Boot: 自動配置"></a>Spring Boot: 自動配置</h4><blockquote>
-<a href="/Note/spring-bean/" title="Spring annotation">Spring 常用註解</a>
 </blockquote>
 <h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><ul>
 <li><p>Model: 進行資料管理和資料庫設計</p>
@@ -302,14 +308,14 @@
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114244039">https://zhuanlan.zhihu.com/p/114244039</a></p>
 </blockquote>
 <ul>
-<li><code>BeanFactory</code>: @Component (工廠模式)</li>
+<li><code>BeanFactory</code>: @Component (工廠模式)，用來建立物件的實例</li>
 <li><code>Singleton</code>:  檢查是否存在實例，若無則鎖住並處理 (Bean)</li>
 <li><code>HandlerAdatper</code>: 每一種Controller有一對應的HandlerAdatper Implement，讓其代替controller執行相對應的方法。擴展Controller上，僅需增加HandlerAdatper即完成SpringMVC之擴展。</li>
 <li><code>Wrapper &amp; Decorator</code>: 連接多個資料庫可使用，動態切換不同資料庫</li>
 <li><code>AOP</code>: 程式的前或後(或前後)執行其他的程式，不影響到原本的業務邏輯 (交易過程中的身分驗證)</li>
-<li><code>Observer</code>: 使用Listener</li>
+<li><code>Observer</code>: 物件中有依賴關係，若其一狀態更動，其他物件會收到通知，被動更新，使用Listener</li>
 <li><code>Strategy</code>: 使用Resource (針對不同的的底層資源，提供方法使用)</li>
-<li><code>Template</code>: Hibernate、RestTemplate</li>
+<li><code>Template</code>: 解決重複程式碼問題，Hibernate、RestTemplate</li>
 </ul>
 <h4 id="Spring-amp-Spring-Boot-Diff"><a href="#Spring-amp-Spring-Boot-Diff" class="headerlink" title="Spring &amp; Spring Boot Diff"></a>Spring &amp; Spring Boot Diff</h4><h5 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h5><blockquote>
 <p>provides comprehensive infrastructure support for developing Java applications.</p>
@@ -423,7 +429,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ioc-x2F-DI"><span class="nav-number">1.</span> <span class="nav-text">Ioc&#x2F;DI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOP-%E5%8B%95%E6%85%8B%E4%BB%A3%E7%90%86%E3%80%81%E4%BD%BF%E7%94%A8-Transactional"><span class="nav-number">2.</span> <span class="nav-text">AOP: 動態代理、使用@Transactional</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Boot-%E8%87%AA%E5%8B%95%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Spring Boot: 自動配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">4.</span> <span class="nav-text">Spring MVC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-Pattern"><span class="nav-number">5.</span> <span class="nav-text">Design Pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-amp-Spring-Boot-Diff"><span class="nav-number">6.</span> <span class="nav-text">Spring &amp; Spring Boot Diff</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring"><span class="nav-number">6.1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Boot-Extends-spring"><span class="nav-number">6.2.</span> <span class="nav-text">Spring Boot (Extends spring)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-%E7%B0%A1%E5%8C%96Java%E9%96%8B%E7%99%BC"><span class="nav-number">1.</span> <span class="nav-text">Spring: 簡化Java開發</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Boot-%E7%B0%A1%E5%8C%96-Spring-%E6%87%89%E7%94%A8%E9%96%8B%E7%99%BC"><span class="nav-number">2.</span> <span class="nav-text">Spring Boot: 簡化 Spring 應用開發</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ioc-x2F-DI"><span class="nav-number">3.</span> <span class="nav-text">Ioc&#x2F;DI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOP-%E5%8B%95%E6%85%8B%E4%BB%A3%E7%90%86%E3%80%81%E4%BD%BF%E7%94%A8-Transactional"><span class="nav-number">4.</span> <span class="nav-text">AOP: 動態代理、使用@Transactional</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">5.</span> <span class="nav-text">Spring MVC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-Pattern"><span class="nav-number">6.</span> <span class="nav-text">Design Pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-amp-Spring-Boot-Diff"><span class="nav-number">7.</span> <span class="nav-text">Spring &amp; Spring Boot Diff</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring"><span class="nav-number">7.1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Boot-Extends-spring"><span class="nav-number">7.2.</span> <span class="nav-text">Spring Boot (Extends spring)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -439,7 +445,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

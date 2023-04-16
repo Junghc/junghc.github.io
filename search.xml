@@ -203,7 +203,7 @@
     <title>Java Knowledge</title>
     <url>/Note/java-knowledge/</url>
     <content><![CDATA[<blockquote>
-<p>Environment、OOP、Abstract&#x2F;Interface、</p>
+<p>Environment、OOP、Abstract&#x2F;Interface、Synchronized、高內聚、低耦合</p>
 </blockquote>
 <span id="more"></span>
 
@@ -399,7 +399,16 @@
 </blockquote>
 <span id="more"></span>
 
-
+<h4 id="Spring-簡化Java開發"><a href="#Spring-簡化Java開發" class="headerlink" title="Spring: 簡化Java開發"></a>Spring: 簡化Java開發</h4><ul>
+<li>IOC: 耦合管理(兩個模組間的關連性或相依性)</li>
+<li>AOP: 可重用的功能，不影響原服務邏輯</li>
+</ul>
+<h4 id="Spring-Boot-簡化-Spring-應用開發"><a href="#Spring-Boot-簡化-Spring-應用開發" class="headerlink" title="Spring Boot: 簡化 Spring 應用開發"></a>Spring Boot: 簡化 Spring 應用開發</h4><ul>
+<li><code>自動配置</code>應用程式及框架所需的基本配置(如 properties 相關)</li>
+<li>嵌入式 Servlet，不用打包成war檔</li>
+<li>簡化 Maven 配置</li>
+<li><a href="/Note/spring-bean/" title="Spring annotation">參考 Spring 常用註解</a></li>
+</ul>
 <h4 id="Ioc-x2F-DI"><a href="#Ioc-x2F-DI" class="headerlink" title="Ioc&#x2F;DI"></a>Ioc&#x2F;DI</h4><blockquote>
 <p>DI實現Ioc</p>
 </blockquote>
@@ -408,9 +417,6 @@
 </ul>
 <h4 id="AOP-動態代理、使用-Transactional"><a href="#AOP-動態代理、使用-Transactional" class="headerlink" title="AOP: 動態代理、使用@Transactional"></a>AOP: 動態代理、使用@Transactional</h4><blockquote>
 <p>@Transactional: 常用在類別或方法上，遇到異常則 Rollback</p>
-</blockquote>
-<h4 id="Spring-Boot-自動配置"><a href="#Spring-Boot-自動配置" class="headerlink" title="Spring Boot: 自動配置"></a>Spring Boot: 自動配置</h4><blockquote>
-<a href="/Note/spring-bean/" title="Spring annotation">Spring 常用註解</a>
 </blockquote>
 <h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><ul>
 <li><p>Model: 進行資料管理和資料庫設計</p>
@@ -426,14 +432,14 @@
 <p><a href="https://zhuanlan.zhihu.com/p/114244039">https://zhuanlan.zhihu.com/p/114244039</a></p>
 </blockquote>
 <ul>
-<li><code>BeanFactory</code>: @Component (工廠模式)</li>
+<li><code>BeanFactory</code>: @Component (工廠模式)，用來建立物件的實例</li>
 <li><code>Singleton</code>:  檢查是否存在實例，若無則鎖住並處理 (Bean)</li>
 <li><code>HandlerAdatper</code>: 每一種Controller有一對應的HandlerAdatper Implement，讓其代替controller執行相對應的方法。擴展Controller上，僅需增加HandlerAdatper即完成SpringMVC之擴展。</li>
 <li><code>Wrapper &amp; Decorator</code>: 連接多個資料庫可使用，動態切換不同資料庫</li>
 <li><code>AOP</code>: 程式的前或後(或前後)執行其他的程式，不影響到原本的業務邏輯 (交易過程中的身分驗證)</li>
-<li><code>Observer</code>: 使用Listener</li>
+<li><code>Observer</code>: 物件中有依賴關係，若其一狀態更動，其他物件會收到通知，被動更新，使用Listener</li>
 <li><code>Strategy</code>: 使用Resource (針對不同的的底層資源，提供方法使用)</li>
-<li><code>Template</code>: Hibernate、RestTemplate</li>
+<li><code>Template</code>: 解決重複程式碼問題，Hibernate、RestTemplate</li>
 </ul>
 <h4 id="Spring-amp-Spring-Boot-Diff"><a href="#Spring-amp-Spring-Boot-Diff" class="headerlink" title="Spring &amp; Spring Boot Diff"></a>Spring &amp; Spring Boot Diff</h4><h5 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h5><blockquote>
 <p>provides comprehensive infrastructure support for developing Java applications.</p>
@@ -817,6 +823,29 @@
       </categories>
       <tags>
         <tag>OAuth</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Talk about SOLID principles</title>
+    <url>/Note/java-solid-principles/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單描述 SOLID 原則</p>
+</blockquote>
+<span id="more"></span>
+
+<ul>
+<li>Single Responsibility Principle：讓類別只有一個職責</li>
+<li>Open Closed Principle：抽象化類別再去<code>擴充</code></li>
+<li>Liskov Substitution Principle：子類別必須完全實現父類別的功能(若子類別無實作，父類別不該有)</li>
+<li>Interface Segregation Principle：介面去隔離不同的功能，不要混在一起</li>
+<li>Dependency Inversion Principle：依賴抽象，就是不要把程式碼寫死在某種實作上</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
