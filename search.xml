@@ -86,6 +86,53 @@
       </categories>
   </entry>
   <entry>
+    <title>AWS Introduction</title>
+    <url>/Note/aws-introduction/</url>
+    <content><![CDATA[<blockquote>
+<p>介紹部分AWS服務</p>
+</blockquote>
+<span id="more"></span>
+
+
+<ul>
+<li>IAM：帳號管理</li>
+<li>EC2 (VM) - Instances：架設機器</li>
+<li>EC2 - Elastic IP：設定機器IP</li>
+<li>EC2 - Snapshot：硬碟快照</li>
+<li>EC2 - Image：Launch一個新機器<blockquote>
+<ul>
+<li>Image：要在關機狀態下做。</li>
+<li>Snapshot：可在開機狀態下做，要在硬碟那邊做。只是對硬碟做快照，並不能恢復完整的機器，要先點Snapshot，針對他做Create Image。</li>
+<li>做Image他會直接幫你做Snapshot；但做Snapshot不會幫你做Image</li>
+</ul>
+</blockquote>
+</li>
+<li>S3：創建Buckets、儲存管理檔案</li>
+<li>CloudFront：可透過Domain name、Alternate domain names、Origins找到對應的S3去下載檔案</li>
+<li>IoT Rule：可以在接收到特定 topic 或收到特定條件時進行指定的動作，例如呼叫 Lambda、將資料寫入 DynamoDB, S3, RDS、推送 Pinpoint, SNS 通知等等。</li>
+<li>IoT Core - Things：設備</li>
+<li>Lambda: 程式部署於此<blockquote>
+<p>需指定role，建議此role有查看<code>Cloud Watch</code>的權限</p>
+</blockquote>
+</li>
+<li>AWS Systems Manager – Parameter Store<blockquote>
+<p>ssm parameter：用於存放所需的敏感參數，如 RDS, Cognito, IoT Core, Pinpoint …，lambda 要使用此參數時可以用 API 取得參數的值。</p>
+</blockquote>
+</li>
+<li>Cloud Watch：查看<code>lambda</code>執行後的log</li>
+<li>API Gateway：統一對外的服務接口</li>
+<li>Cloud9：以雲端為基礎的整合開發環境</li>
+<li>RDS: 資料庫</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>aws</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Build cloud website with Infinityfree</title>
     <url>/Note/build-cloud-website-with-infinityfree/</url>
     <content><![CDATA[<blockquote>
@@ -243,7 +290,7 @@
 <tr>
 <td>應用</td>
 <td>關係密切之類別，Car -&gt; Benz, Audi</td>
-<td>Fly -&gt; Airplane, Bird</td>
+<td>功能類似，Fly -&gt; Airplane, Bird</td>
 </tr>
 <tr>
 <td>解釋</td>
@@ -260,6 +307,29 @@
 <ul>
 <li>耦合(Coupling): 兩個模組間的關連性或相依性</li>
 <li>內聚: 模組本身不需依賴其他模組，就能完成工作</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Talk about SOLID principles</title>
+    <url>/Note/java-solid-principles/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單描述 SOLID 原則</p>
+</blockquote>
+<span id="more"></span>
+
+<ul>
+<li>Single Responsibility Principle：讓類別只有一個職責</li>
+<li>Open Closed Principle：抽象化類別再去<code>擴充</code></li>
+<li>Liskov Substitution Principle：子類別必須完全實現父類別的功能(若子類別無實作，父類別不該有)</li>
+<li>Interface Segregation Principle：介面去隔離不同的功能，不要混在一起</li>
+<li>Dependency Inversion Principle：依賴抽象，就是不要把程式碼寫死在某種實作上</li>
 </ul>
 ]]></content>
       <categories>
@@ -632,6 +702,7 @@
 <li>Restful API </li>
 <li>Git</li>
 <li>Docker</li>
+<li>Microservice</li>
 </ul>
 </blockquote>
 <span id="more"></span>
@@ -680,6 +751,14 @@
 <li>Container: 執行的應用程式</li>
 <li>Dockerfile: 撰寫指令打包成image</li>
 <li>Docker Compose: 執行多個container</li>
+<li>K8S: 管理多個 container</li>
+</ul>
+<h2 id="Microservice"><a href="#Microservice" class="headerlink" title="Microservice"></a>Microservice</h2><blockquote>
+<p>當一個服務過大，即應拆分成獨立的各別服務</p>
+</blockquote>
+<ul>
+<li>優點: 功能獨立運作、易於擴充、開發自由(可用其他語言程式進行開發)</li>
+<li>缺點: 元件拆分困難</li>
 </ul>
 ]]></content>
       <categories>
@@ -823,29 +902,6 @@
       </categories>
       <tags>
         <tag>OAuth</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Talk about SOLID principles</title>
-    <url>/Note/java-solid-principles/</url>
-    <content><![CDATA[<blockquote>
-<p>簡單描述 SOLID 原則</p>
-</blockquote>
-<span id="more"></span>
-
-<ul>
-<li>Single Responsibility Principle：讓類別只有一個職責</li>
-<li>Open Closed Principle：抽象化類別再去<code>擴充</code></li>
-<li>Liskov Substitution Principle：子類別必須完全實現父類別的功能(若子類別無實作，父類別不該有)</li>
-<li>Interface Segregation Principle：介面去隔離不同的功能，不要混在一起</li>
-<li>Dependency Inversion Principle：依賴抽象，就是不要把程式碼寫死在某種實作上</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
 </search>
