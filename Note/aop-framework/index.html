@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif">
+  <link rel="mask-icon" href="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Secular One:300,300italic,400,400italic,700,700italic|Josefin Sans:300,300italic,400,400italic,700,700italic|impact:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"junghc.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="常用於 authentication(使用服務前驗證身分)、record log(紀錄行為日誌)&#x3D;&gt; 屬橫切面，與系統主要服務功能較無直接關係">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOP (Aspect-Oriented Programming)">
+<meta property="og:url" content="https://junghc.github.io/Note/aop-framework/index.html">
+<meta property="og:site_name" content="De完Bug好下班">
+<meta property="og:description" content="常用於 authentication(使用服務前驗證身分)、record log(紀錄行為日誌)&#x3D;&gt; 屬橫切面，與系統主要服務功能較無直接關係">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-25T12:08:44.000Z">
+<meta property="article:modified_time" content="2023-12-25T12:30:55.149Z">
+<meta property="article:author" content="Jupiter pluvius">
+<meta property="article:tag" content="design-pattern">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://junghc.github.io/Note/aop-framework/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>AOP (Aspect-Oriented Programming) | De完Bug好下班</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GDWFFTT3Y"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1GDWFFTT3Y');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">De完Bug好下班</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-otter fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">21</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://junghc.github.io/Note/aop-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif">
+      <meta itemprop="name" content="Jupiter pluvius">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="De完Bug好下班">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AOP (Aspect-Oriented Programming)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-12-25 20:08:44 / Modified: 20:30:55" itemprop="dateCreated datePublished" datetime="2023-12-25T20:08:44+08:00">2023-12-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/Note/aop-framework/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Note/aop-framework/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>常用於 authentication(使用服務前驗證身分)、record log(紀錄行為日誌)<br>&#x3D;&gt; 屬橫切面，與系統主要服務功能較無直接關係</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="基本介紹"><a href="#基本介紹" class="headerlink" title="基本介紹"></a>基本介紹</h2><ul>
+<li><p>基於OOP：把橫切面邏輯封裝</p>
+</li>
+<li><p>類似 Proxy Pattern</p>
+</li>
+<li><p>集中處理非核心邏輯之需求</p>
+</li>
+<li><p>一段話了解AOP</p>
+<blockquote>
+<p>抽離非核心之共用邏輯，於特定時機點(程式前&#x2F;後)，執行其他次要業務邏輯的程式，使核心邏輯不受切面邏輯影響</p>
+</blockquote>
+</li>
+<li><p>為什麼使用AOP</p>
+<blockquote>
+<p>OOP是以侵入性方式對原程式碼加入額外程式 &#x3D;&gt; 重複、關注點混淆且難以維護<br>AOP可降低系統的耦合，增加程式的可擴充性</p>
+</blockquote>
+</li>
+<li><p>專注職責，降低依賴</p>
+</li>
+</ul>
+<hr>
+<h2 id="術語"><a href="#術語" class="headerlink" title="術語"></a>術語</h2><ul>
+<li>Aspect <blockquote>
+<p>A modularization of a concern that cuts across multiple classes. (打包好的模組)</p>
+</blockquote>
+</li>
+<li>Point Cut<blockquote>
+<p>A predicate that matches join points. (切入點的定義<br>)</p>
+</blockquote>
+</li>
+<li>Join Point<blockquote>
+<p>A point during the execution of a program. (aspect 呼叫的時機點)</p>
+</blockquote>
+</li>
+<li>Advice<blockquote>
+<p>Action taken by an aspect at a particular join point. (aspect 的實作)</p>
+</blockquote>
+</li>
+<li>Weaving<blockquote>
+<p>Linking aspects with other application types or objects to create an advised object. (advice被應用至物件上之過程)</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="Diagram"><a href="#Diagram" class="headerlink" title="Diagram"></a>Diagram</h2><img src = "https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_94bdb1abf5604918b8cf6741ae3fc014.gif?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1703507613&Signature=BbdkVXjqxmqLUyQ5B1c3IRYcFGI%3D" alt="aop-gif">
+
+
+<hr>
+<h2 id="Code-Snippet"><a href="#Code-Snippet" class="headerlink" title="Code Snippet"></a>Code Snippet</h2><p>Ex1. <code>OOP Method</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SettingService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">saveSetting</span><span class="params">(String name)</span> &#123; </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            saveNameToDb(name); <span class="comment">// 主功能</span></span><br><span class="line">            recordLog(Level.INFO, <span class="string">&quot;hello success.&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.ok();</span><br><span class="line">        &#125; <span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">            recordLog(Level.INFO, <span class="string">&quot;hello fail.&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.badRequest(); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Ex2. <code>AOP</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SettingService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@LogRecord(logInfo = &quot;&#x27;Save&#x27; + #name &quot;, level = &quot;INFO&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">saveSetting</span><span class="params">(String name)</span> &#123; </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            saveNameToDb(name); <span class="comment">// 主功能</span></span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.ok();</span><br><span class="line">        &#125; <span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.badRequest(); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>AOP Implementation</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Aspect</span> </span><br><span class="line"><span class="meta">@Component</span> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogAOP</span> &#123; </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut(value=“@annotation(logRecord)&quot;)</span> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pointcut</span><span class="params">()</span> &#123;&#125;; </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 執行前</span></span><br><span class="line">    <span class="meta">@Before(value = &quot;pointcut()&quot;)</span> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getLogInfoBefore</span><span class="params">(JoinPoint joinPoint)</span> &#123; <span class="comment">// ... &#125; </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 執行後正常回傳</span></span><br><span class="line">    <span class="meta">@AfterReturning(value = &quot;pointcut()&quot;, returning = &quot;returnValue&quot;)</span> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getLogInfoAfterReturning</span><span class="params">(JoinPoint joinPoint, Object returnValue)</span> &#123; <span class="comment">// ... &#125; </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 執行後</span></span><br><span class="line">    <span class="meta">@After(value = &quot;pointcut()&quot;)</span> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getLogInfoAfter</span><span class="params">(JoinPoint joinPoint)</span> &#123; <span class="comment">// ... &#125; </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 包括執行前/後、回傳值</span></span><br><span class="line">    <span class="meta">@Around(value = &quot;pointcut()&quot;)</span> </span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">getLogInfoAround</span><span class="params">(ProceedingJoinPoint pjp)</span> &#123; <span class="comment">// ... &#125; </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 執行出現異常</span></span><br><span class="line">    <span class="meta">@AfterThrowing(value = &quot;pointcut()“,  throwing= “e&quot; )</span> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getLogInfoAfterThrowing</span><span class="params">(Exception e)</span> &#123; <span class="comment">// ... &#125; </span></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Custom Annotation</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> LogRecord&#123;</span><br><span class="line">    </span><br><span class="line">    String <span class="title function_">title</span><span class="params">()</span>;</span><br><span class="line">    String <span class="title function_">logInfo</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/design-pattern/" rel="tag"># design-pattern</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Note/elk-installation/" rel="prev" title="ELK installation on Windows">
+      <i class="fa fa-chevron-left"></i> ELK installation on Windows
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">基本介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%93%E8%AA%9E"><span class="nav-number">2.</span> <span class="nav-text">術語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diagram"><span class="nav-number">3.</span> <span class="nav-text">Diagram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Snippet"><span class="nav-number">4.</span> <span class="nav-text">Code Snippet</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jupiter pluvius"
+      src="https://i.pinimg.com/originals/e2/c8/4e/e2c84ee39357aac523eacd68bcfc6c32.gif">
+  <p class="site-author-name" itemprop="name">Jupiter pluvius</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-otter"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jupiter pluvius</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hjc.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://junghc.github.io/Note/aop-framework/";
+    this.page.identifier = "Note/aop-framework/";
+    this.page.title = "AOP (Aspect-Oriented Programming)";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hjc.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
